@@ -61,7 +61,8 @@ exports.login = async (req, res) => {
     // Configurar la cookie con el token
     res.cookie('token', token, {
       httpOnly: true,
-      maxAge: 60 * 60 * 1000, // 1 hora
+      maxAge: 60 * 60 * 1000 * 24 * 30, // 1 hora
+      secure: false,
     });
 
     res.json({ message: 'Inicio de sesión exitoso', token });

@@ -17,7 +17,6 @@ exports.authenticate = (req, res, next) => {
 
     // Añadir el ID del usuario al objeto de solicitud
     req.userId = decodedToken.userId;
-    console.log(token);
 
     next();
   } catch (error) {

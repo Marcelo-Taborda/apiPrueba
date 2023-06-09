@@ -1,5 +1,4 @@
 // auth/controllers/authController.js
-
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
@@ -16,7 +15,8 @@ exports.register = async (req, res) => {
     }
 
     // Generar hash del password
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     // Crear un nuevo usuario
     const newUser = new User({
@@ -34,6 +34,7 @@ exports.register = async (req, res) => {
     res.status(500).json({ message: 'Error en el servidor' });
   }
 };
+
 
 // Controlador para el inicio de sesión
 exports.login = async (req, res) => {

@@ -15,12 +15,7 @@ app.use(cors({
     origin: true,
     optionsSuccessStatus: 200,
     credentials: true
-}, 
-{
-    origin: 'apiprueba-production-93dc.up.railway.app',
-    optionsSuccessStatus: 200,
-    credentials: true
-},
+}
 ));
 app.use(express.json());
 app.use(cookieParser());
